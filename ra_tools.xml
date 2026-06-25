@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+	<name>com_ra_tools</name>
+	<author>East Cheshire Ramblers</author>
+	<creationDate>2026-06-25</creationDate>
+	<copyright>Copyright (C) East Cheshire Ramblers. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>webmaster@bigley.me.uk</authorEmail>
+	<authorUrl>https://ramblerseastcheshire.org.uk/</authorUrl>
+	<version>1.0.0</version>
+	<description>East Cheshire Ramblers tools component.</description>
+	<namespace path="src">Ramblers\Component\Ra_tools</namespace>
+
+	<files folder=".">
+		<folder>forms</folder>
+		<folder>languages</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<updateservers>
+		<server type="extension" priority="1" name="RA Tools Updates">https://raw.githubusercontent.com/East-Cheshire-Ramblers/com_ra_tools/joomla-auto-update/updates/com_ra_tools.xml</server>
+	</updateservers>
+</extension>

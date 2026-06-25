@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+	<update>
+		<name>com_ra_tools</name>
+		<description>East Cheshire Ramblers tools component.</description>
+		<element>com_ra_tools</element>
+		<type>component</type>
+		<version>1.0.0</version>
+		<client>site</client>
+		<infourl title="Release notes">https://github.com/East-Cheshire-Ramblers/com_ra_tools/releases/tag/v1.0.0</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/East-Cheshire-Ramblers/com_ra_tools/releases/download/v1.0.0/com_ra_tools-1.0.0.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version="4.*"/>
+	</update>
+</updates>
