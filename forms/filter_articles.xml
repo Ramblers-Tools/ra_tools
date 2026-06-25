@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field
+            name="search"
+            type="text"
+            label="Search"
+            description=""
+            hint="JSEARCH_FILTER"
+        />
+        <field name="year" 
+               type="list" 
+               label="Year" 
+               description="Year created" 
+               class="inputbox" size="1"
+               onchange="this.form.submit()"  
+               default="">
+           <option value="">- Year -</option>
+           <option value="2016">2016</option>
+           <option value="2017">2017</option>
+           <option value="2018">2018</option>
+           <option value="2019">2019</option>
+           <option value="2020">2020</option>
+           <option value="2021">2021</option> 
+           <option value="2022">2022</option>
+           <option value="2023">2023</option>
+           <option value="2024">2024</option> 
+           <option value="2025">2025</option>
+        </field>  
+    </fields>
+
+    <fields name="list">
+
+        <field
+            name="fullordering"
+            type="list"
+            label="JGLOBAL_SORT_BY"
+            default="a.name ASC"
+            onchange="this.form.submit();"
+            >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.created ASC">Created ascending</option>
+            <option value="a.created DESC">Created descending</option>
+            <option value="a.title ASC">Title Ascending</option>
+            <option value="a.titlee DESC">Title Descending</option>
+            <option value="created.name ASC">Author Ascending</option>
+            <option value="created.name DESC">Author Descending</option>
+            <option value="a.modified ASC">Modified ascending</option>
+            <option value="a.modified DESC">Modified descending</option>
+            <option value="updated.name ASC">Modified by ascending</option>
+            <option value="updated.name DESC">Modified by descending</option>
+            <option value="a.id ASC">ID ascending</option>
+            <option value="a.id DESC">ID descending</option>
+        </field>
+
+        <field
+            name="limit"
+            type="limitbox"
+            label="JGLOBAL_LIST_LIMIT"
+            default="25"
+            onchange="this.form.submit();"
+        />
+    </fields>
+</form>
+
+

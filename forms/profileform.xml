@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Ramblers\Component\Ra_events\Site\Field">
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    
+    <field name="home_group" 
+        filter="safehtml" 
+        type="text" 
+        maxlength="4"
+        required="true" 
+        label="Code for Home Group" 
+        description="Group with which registered at Central Office" 
+        hint="aa01"
+    />
+    <field name="real_name" 
+        maxlength="60" 
+        filter="string" 
+        type="text" 
+        readonly="true" 
+        label="Your real name" 
+        description="Your actual name (will not be shown publicly)" 
+        hint="Name"
+    />
+    <field name="preferred_name" 
+        maxlength="60" 
+        filter="string" 
+        type="text" 
+        required="true" 
+        label="Preferred name" 
+        description="Name by which you prefer to be known" 
+        hint="Nickname"
+    />
+    <field name="email" 
+        validate="email" 
+        type="email" 
+        label="Email" 
+        description="Email address" 
+        hint="aaaa@bbb.com"
+    />      
+      
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" type="hidden" filter="unset"/>
+    <field name="created" class="inputbox" format="%Y-%m-%d" timeformat="12" filter="user_utc" translateformat="false" showtime="false" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" readonly="true" label="COM_RA_EVENTS_FORM_LBL_PROFILE_CREATED" description="COM_RA_EVENTS_FORM_DESC_PROFILE_CREATED" hidden="true" hint="COM_RA_EVENTS_FORM_LBL_PROFILE_CREATED"/>
+    <field name="modified" class="inputbox" format="%Y-%m-%d" timeformat="12" filter="user_utc" translateformat="false" showtime="false" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" readonly="true" label="COM_RA_EVENTS_FORM_LBL_PROFILE_MODIFIED" description="COM_RA_EVENTS_FORM_DESC_PROFILE_MODIFIED" hidden="true" hint="COM_RA_EVENTS_FORM_LBL_PROFILE_MODIFIED"/>
+
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="groups_to_follow" filter="safehtml" type="text" label="COM_RA_MAILMAN_FORM_LBL_PROFILE_GROUPS_TO_FOLLOW" description="COM_RA_MAILMAN_FORM_DESC_PROFILE_GROUPS_TO_FOLLOW" hint="COM_RA_MAILMAN_FORM_LBL_PROFILE_GROUPS_TO_FOLLOW"/>
+    <field name="notify_email" type="checkbox" checked="" label="COM_RA_MAILMAN_FORM_LBL_PROFILE_NOTIFY_EMAIL" description="COM_RA_MAILMAN_FORM_DESC_PROFILE_NOTIFY_EMAIL" hint="COM_RA_MAILMAN_FORM_LBL_PROFILE_NOTIFY_EMAIL"/>
+
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

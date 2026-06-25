@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Upload a file" option="View">
+        <message>
+                        <![CDATA[Transfer a file from your local device to the server]]>
+        </message>
+    </layout>
+	<config>
+            <fields name="params">
+                <fieldset name="basic">
+                    <!-- Define your basic params for the view here 
+                         They will appear as an "Options" tab when creating a front-end menu entry -->
+                    <field name="note01" type="note" label="Transfer a file from your local device to the server" />   
+                    <field name="intro" 
+                        type="textarea" 
+                        default="" 
+                        label="Introduction (optional)" 
+                        description="Any introductory text for the page" />        
+                    <field name="mime_types" 
+                           type="text" 
+                           default="application/pdf,application/gpx+xml,image/bmp,image/jpeg,image/png,text/plain,text/csv,text/comma-separated-values,text/xml"
+                           message="Specify application/pdf,application/gpx+xml,image/bmp,image/jpeg,image/png,text/plain,text/csv,text/comma-separated-values,text/xml"
+                           class="input-xxlarge" 
+                           label="MIME types" 
+                           description="Comma delimited list of file types" 
+                        />   
+                    <field name="target_folder" 
+                        type="folderlist" 
+                        default="images" 
+                        label="Target folder" 
+                        directory="images" 
+                        recursive="true"
+                        hide_default="true"
+                        description="Folder for storage of files"/>                                          
+                    <field name="list_files" 
+                        type="checkbox" 
+                        value="1"
+                        checked="1" 
+                        label="List files" 
+                        description="Show listing of files already uploaded" />   
+                    <field name="num_columns" 
+                        type="integer" 
+                        first="1"
+                        step="1"
+                        last="4"
+                        default="2" 
+                        showon="list_files:1"
+                        label="Number of columns" 
+                        description="Number of columns to use when displaying the files" />  
+                    <field name="sort" 
+                        type="radio"
+                        label="Sort order" 
+                        default="ASC" 
+                        showon="list_files:1"
+                        description="Required sequence">
+                      <option value="ASC">Ascending</option>
+                      <option value="DESC">Descending</option>
+                    </field>                      
+                </fieldset>
+            </fields>
+	</config>
+</metadata>
+

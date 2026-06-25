@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Display list of points on a map" option="View">
+		<message>
+			<![CDATA[Display list of points on a map]]> 
+		</message>
+	</layout>
+	<config>
+		<fields name="params">
+                    <fieldset name="basic">
+                        <!-- Define your basic params for the view here 
+                             They will appear as an "Options" tab when creating a front-end menu entry -->
+                        <field name="page_intro" 
+                               type="textarea" 
+                               default=""
+                               label="Introduction (optional)" 
+                               description="Any introductory text for the page" 
+                        />                                                          
+                            <field name="target_folder" 
+                                type="folderlist" 
+                                default="images" 
+                                label="Target folder" 
+                                directory="images" 
+                                recursive="true"
+                                hide_default="true"
+                                description="Folder for storage of CSV files"/>   
+                        <field name="file"
+                            type="text" 
+                            default=""
+                            label="File name" 
+                            description="Name of the file to be displayed. This must be formatted in line with instructions on https://www.ramblers-webs.org.uk/mapping-2/display-table-of-information.html" 
+                         />                                                                                                              
+                        <field name="show_file" type="radio" default="Y" label="Display name of folder/file">
+                            <option value="Y">Yes</option>                            
+                            <option value="N">No</option>      
+                        </field>  
+                        <field name="download" type="radio" default="Y" label="Allow file to be downloaded?">
+                            <option value="Y">Yes</option>                            
+                            <option value="N">No</option>      
+                        </field>  
+                        <field name="page_footer" 
+                           type="text" 
+                           default=""
+                           class="input-xxlarge" 
+                           label="Page footer (optional)" 
+                           description="Any required text for the foot of the page" 
+                        />                             
+                        <field name="note3" type="note" label="For information about this component please visit: https://docs.stokeandnewcastleramblers.org.uk and read the Webmasters Guide"/>
+                    </fieldset>
+		</fields>
+	</config>
+</metadata>
+
+

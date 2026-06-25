@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="List Articles" option="View">
+        <message>
+            <![CDATA[List and search Articles for the chosen category]]>
+        </message>
+    </layout>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+
+                <field name="note01" type="note" label="Shows Articles either from the local site or a remote site" />  
+                <field name="intro" 
+                       type="textarea" 
+                       default="" 
+                       label="Introduction (optional)" 
+                       description="Any introductory text for the page" />                
+                <field name="site" type="radio" default="local" label="Location">
+                    <option value="local">Local site</option>
+                    <option value="remote">A remote site</option>
+                </field>      
+                <field name="remote_url"
+                    type="text"
+                    default=""
+                    size="4"
+                    label="URL of the remote site"
+                    description="Enter the full website address"
+                    hint="https://stokeandnewcastleramblers.org.uk"
+                    showon="site:remote"
+                />                                       
+                <field name="server"
+                    type="text"
+                    default=""
+                    size="4"
+                    label="Server"
+                    description="Name of the Database Server on the remote site"
+                    showon="site:remote"
+                />   
+                <field name="database"
+                    type="text"
+                    default=""
+                    size="4"
+                    label="Database"
+                    description="Name of the Database on the remote site"
+                    showon="site:remote"
+                />     
+                <field name="user"
+                    type="text"
+                    default=""
+                    size="4"
+                    label="User"
+                    description="Name of the User on the remote site"
+                    showon="site:remote"
+                />                  
+                <field name="password"
+                    type="text"
+                    default=""
+                    size="4"
+                    label="Password"
+                    description="Password on the remote site"
+                    showon="site:remote"
+                />    
+                <field name="prefix"
+                    type="text"
+                    default=""
+                    size="4"
+                    label="Prefix"
+                    description="Database prefix on the remote site"
+                    showon="site:remote"
+                />    
+                <field name="remote_category_id"
+                    type="text"
+                    size="4"
+                    label="Remote Category ID"
+                    description="ID of the required remote Category"
+                    default="2"
+                    showon="site:remote"
+                />   
+                <field name="category_id"
+                    type="category"
+                    extension="com_content"
+                    label="Choose a category"
+                    description="Category of Articles to be shown"
+                    default="2"
+                    showon="site:local"
+                />                             
+            </fieldset>
+        </fields>
+    </config>
+</metadata>

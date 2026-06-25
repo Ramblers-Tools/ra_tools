@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- this is used to allow the menu entry to be customised, and fields will appear on the "Basic" tab when editing the menu entry from the back end 
+    19/01/21 CB correct spelling of website
+-->
+<metadata>
+	<layout title="GPX utilities" option="View">
+		<message>
+			<![CDATA[Display or create GPX Routes]]>  <!-- CDATA introduces "character data" that will not be parsed as XML -->
+		</message>
+	</layout>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+                            <!-- Define your basic params for the view here 
+                                 They will appear as an "Options" tab when creating a front-end menu entry -->
+                            <field name="display_type" 
+                                   type="radio" 
+                                   default="P" 
+                                   label="Type of display">
+                                <option value="P">Plot a Route</option>                            
+                                <option value="L">Display a library of Routes</option>
+                                <option value="S">Display a single Route</option>
+                            </field>  
+                            <field name="page_intro" 
+                                   type="textarea" 
+                                   default=""
+                                   label="Introduction (optional)" 
+                                   description="Any introductory text for the page" 
+                            />     
+                            <field name="download" type="radio" default="Public" label="Allow download of GPX">
+                                <option value="Public">Always</option>                            
+                                <option value="Users">Only when logged in</option>      
+                                <option value="None">Never</option>
+                            </field>                                                         
+                            <field name="note1" 
+                                   type="note" 
+                                   showon="display_type:L"
+                                   label="If displaying Routes, page specific parameters for displaying a collection of them"
+                            />
+                            <field name="target_folder" 
+                                type="folderlist" 
+                                default="images" 
+                                label="Target folder" 
+                                directory="images" 
+                                recursive="true"
+                                hide_default="true"
+                                description="Folder for storage of files"/>                                
+                            <field
+                                name="gpx"
+                                type="text"
+                                label="Specify a file within this folder"
+                                description="Relevant GPX file"
+                                showon="display_type:S"
+                                hint="route.gpx"
+                                default=""
+                            />         
+                            <field name="show_file" 
+                                   type="radio"
+                                   showon="display_type:S" 
+                                   default="Y" 
+                                   label="Display route name">
+                                <option value="Y">Yes</option>                            
+                                <option value="N">No</option>      
+                            </field>                                                                            
+                            <field name="show_folder" 
+                                   type="radio"
+                                   showon="display_type:L" 
+                                   default="Y" 
+                                   label="Display folder name">
+                                <option value="Y">Yes</option>                            
+                                <option value="N">No</option>      
+                            </field>  
+                            <field name="note3" type="note" label="For information about this component please visit: https://docs.stokeandnewcastleramblers.org.uk and read the Webmasters Guide"/>
+			</fieldset>
+		</fields>
+	</config>
+</metadata>

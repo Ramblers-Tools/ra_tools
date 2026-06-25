@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Delete your profile" option="View">
+        <message>
+                        <![CDATA[Allows user to delete their Profile]]>
+        </message>
+    </layout>
+    <fields name="params">
+        <fieldset 
+            name="basic"
+            label="Options">
+             <field name="mode" 
+                    default="5" 
+                    type="list" 
+                    label="Mode" 
+                    description="Type of menu required" 
+                    readonly="true"
+                    class="inputbox" 
+                    size="1">
+            <option value="5">Delete profile</option>
+            </field>
+            <field name="note2" 
+                   type="note" 
+                   showon="mode:2"
+                   label="This menu item should only be visible to Registered users"
+            /> 
+        </fieldset>
+    </fields>
+</metadata>
+
+

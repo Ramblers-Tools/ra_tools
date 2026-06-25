@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Show a Users access permissions" option="View">
+        <message>
+                        <![CDATA[Show a Users access permissions]]>
+        </message>
+    </layout>
+    <fields name="params">
+        <fieldset 
+            name="basic"
+            label="Options">
+            <field name="note1" 
+                   type="note" 
+                   label="This menu item should only be visible to Registered users"
+            />
+        </fieldset>
+    </fields>
+</metadata>
+
+

@@ -1,0 +1,37 @@
+<?php
+/**
+ * @package     com_ra_tools
+ * @subpackage  api
+ * @copyright   Copyright (C) 2026. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * 10/03/26 GPT API endpoint for remote access to #__ra_clusters
+ */
+
+namespace Ramblers\Component\Ra_tools\Site\Controller;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\MVC\Controller\BaseController;
+use Joomla\CMS\Language\Text;
+use Joomla\Database\DatabaseDriver;
+use Joomla\CMS\Response\JsonResponse;
+
+class ApiClustersController extends BaseController
+{
+    /**
+     * GET: /api/index.php/v1/ra-tools/clusters
+     * Returns cluster data with contact info
+     */
+    public function getClusters()
+    {
+        $db = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('a.*, p.preferred_name, u.email')
+            ->from($db->quoteName('#__ra_clusters', 'a'))
+            ->innerJoin($db->quoteName('#__contact_details', 'c') . ' ON c.id = a.contact_id')
+            ->innerJoin($db->quoteName('#__users', 'u') . ' ON u.id = c.user_id')
+            ->innerJoin($db->quoteName('#__ra_profiles', 'p') . ' ON p.id = c.user_id');
+        $db->setQuery($query);
+        $rows = $db->loadObjectList();
+        return new JsonResponse($rows);
+    }
+}

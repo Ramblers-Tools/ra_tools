@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- this is used to allow the menu entry to be customised, and fields will appear on the "Basic" tab when editing the menu entry from the back end 
+    19/01/21 CB correct spelling of website
+-->
+<metadata>
+	<layout title="List contents of a folder" option="View">
+            <message>
+                    <![CDATA[Shows a list of all the files in a given folder]]> 
+            </message>
+	</layout>
+	<config>
+        <fields name="params">
+                <fieldset name="basic">
+                    <!-- Define your basic params for the view here 
+                         They will appear as an "Options" tab when creating a front-end menu entry -->
+                    <field name="page_intro" 
+                           type="textarea" 
+                           default=""
+                           label="Introduction (optional)" 
+                           description="Any introductory text for the page" 
+                    />                                                          
+                    <field name="target_folder" 
+                        type="folderlist" 
+                        default="images" 
+                        label="Target folder" 
+                        directory="images" 
+                        recursive="true"
+                        hide_default="true"
+                        description="Folder for storage of files"/>    
+                    <field name="expand" type="radio" default="Y" label="Expand sub-folders">
+                        <option value="Y">Yes</option>                            
+                        <option value="N">No</option>      
+                    </field>   
+                        <field name="sort" type="radio" default="ASC" label="Sort order">
+                        <option value="ASC">Ascending</option>                            
+                        <option value="DESC">Descending</option>      
+                    </field>                                                                                    
+                    <field name="num_columns" 
+                        type="integer" 
+                        first="1"
+                        step="1"
+                        last="4"
+                        default="2" 
+                        label="Number of columns" 
+                        description="Number of columns to use when displaying the files" />     
+                    <field name="show_folder" 
+                        label="Display folder name"
+                        type="radio" 
+                        showon="expand:N"
+                        default="Public">
+                        <option value="Public">Always</option>                            
+                        <option value="Users">Only when logged in</option>      
+                        <option value="None">Never</option>
+                    </field>  
+                    <field name="note3" type="note" label="For information about this component please visit: https://docs.stokeandnewcastleramblers.org.uk and read the Webmasters Guide"/>
+                </fieldset>
+        </fields>
+</config>
+</metadata>
+

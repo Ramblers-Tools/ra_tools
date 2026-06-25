@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Show software versions" option="View">
+		<message>
+			<![CDATA[Shows the Ramblers extensions that are installed, and their versions]]>
+		</message>
+	</layout>
+</metadata>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    Circle Map View
+    Shows a Leaflet map with a circle overlay indicating search radius
+-->
+<metadata>
+    <layout title="Show location of Group" option="View">
+        <message>
+            <![CDATA[Display a map with a circle overlay showing the search radius around the location of the default group]]>
+        </message>
+    </layout>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="note1" type="note" label="This view displays an interactive map centered on a group location with a circle overlay showing the search radius."/>
+                <field name="page_intro"
+                            type="editor"
+            		        label="Page Introduction"
+                            description="Text to be shown before table of members"
+                            filter="raw"
+                            rows="8"
+                            cols="80"
+			                default=""
+                        />  
+                <field name="radius_miles" type="text" label="Radius (miles)" description="The search radius in miles"/>
+            </fieldset>
+        </fields>
+    </config>
+</metadata>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Display contents of a file" option="View">
+		<message>
+			<![CDATA[Display contents of a PDF, CSV, TXT or HTML file]]>
+		</message>
+	</layout>
+	<config>
+            <fields name="params">
+		<fieldset name="basic">
+                <!-- Define your basic params for the view here 
+                                 They will appear as an "Options" tab when creating a front-end menu entry -->                            
+                    <field name="note1" type="note" label="This allows you to display the content of a PDF, CSV, TXT or HTML file."/>
+                    <field name="page_intro" 
+                        type="text" 
+                        default=""
+                        class="input-xxlarge" 
+                        label="Introduction (optional)" 
+                        description="Any introductory text for the page" 
+                     /> 
+                    <field name="folder" 
+                        label="Parent folder" 
+                        type="folderlist" 
+                        default="images"                        
+                        directory="images" 
+                        recursive="true"
+                        hide_default="true"
+                        description="Folder holding the required file" 
+                    />                  
+                    <field name="file"
+                        type="text" 
+                        default=""
+                        label="File name" 
+                        description="Name of the file to be displayed (must be csv,txt, htm or html)" 
+                     /> 
+                    <field name="show_file" type="radio" default="Y" label="Display name of folder/file">
+                        <option value="Y">Yes</option>                            
+                        <option value="N">No</option>      
+                    </field>                      
+                    <field name="download" type="radio" default="Y" label="Allow file to be downloaded?">
+                        <option value="Y">Yes</option>                            
+                        <option value="N">No</option>      
+                    </field>  
+                     <field name="page_footer" 
+                        type="text" 
+                        default=""
+                        class="input-xxlarge" 
+                        label="Page footer (optional)" 
+                        description="Any required text for the foot of the page" 
+                     />                       
+                    <field name="note3" type="note" label="For information about this function please visit: 
+https://docs.stokeandnewwcastleramblers.org.uk and read the Webmasters Guide"/>  
+            </fieldset>
+	</fields>
+    </config>
+</metadata>
+
