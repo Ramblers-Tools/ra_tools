@@ -116,41 +116,80 @@ class ToolsHelper {
         return $header;
     }
 
+    private function collapseDuplicatedAbsoluteUrls($html) {
+        do {
+            $previous = $html;
+            $html = preg_replace('#https?://([^/"\'>\s]+)/(https?://\1/)#i', '$2', $html);
+            $html = preg_replace('#https?://[^"\'>\s]*/(https?://[^"\'>\s]+)#i', '$1', $html);
+        } while ($html !== $previous);
+
+        return $html;
+    }
+
+    private function getEmailAssetRoot() {
+        $root = trim((string) Uri::root());
+
+        if (!preg_match('#^https?://#i', $root)) {
+            $config = Factory::getConfig();
+            $root = $config ? trim((string) $config->get('live_site')) : '';
+        }
+
+        return rtrim($this->collapseDuplicatedAbsoluteUrls($root), '/') . '/';
+    }
+
+    private function getHostFromUrl($url) {
+        $host = parse_url($url, PHP_URL_HOST);
+
+        return is_string($host) ? strtolower($host) : '';
+    }
+
+    private function extractLocalEmailImagePath($src) {
+        $src = trim($this->collapseDuplicatedAbsoluteUrls((string) $src));
+
+        if ($src === '' || preg_match('#^(?:data:|cid:|mailto:|tel:|#)#i', $src)) {
+            return '';
+        }
+
+        if (preg_match('#^/?images/#i', $src)) {
+            return ltrim($src, '/');
+        }
+
+        if (!preg_match('#/((?:[^/"\'>\s]+/)*images/[^"\'>\s]+)#i', $src, $path_match)) {
+            return '';
+        }
+
+        $root_host = $this->getHostFromUrl($this->getEmailAssetRoot());
+        $src_host = $this->getHostFromUrl($src);
+        $has_nested_host = preg_match('#^https?://[^/"\'>\s]+/(?:https?://|[^/"\'>\s]+\.[^/"\'>\s]+/)#i', $src);
+
+        if (!$has_nested_host && $src_host !== $root_host) {
+            return '';
+        }
+
+        return preg_replace('#^(?:[^/]+/)*?(images/)#i', '$1', $path_match[1]);
+    }
+
     public function makeEmailImageUrlsAbsolute($body) {
-        $root = 'https://ramblerseastcheshire.org.uk/';
-        $body = preg_replace('#https?://([^/"\'>\s]+)/(https?://\1/)#i', '$2', $body);
-        $body = str_replace(
-            'https://ramblerseastcheshire.org.uk/https://ramblerseastcheshire.org.uk/',
-            'https://ramblerseastcheshire.org.uk/',
-            $body
-        );
-        $site = preg_quote($root, '#');
-        $body = preg_replace('#' . $site . '(https?://[^"\'>\s]+)#i', '$1', $body);
-        $body = preg_replace('#https?://[^"\'>\s]*/(https?://[^"\'>\s]+)#i', '$1', $body);
+        $root = $this->getEmailAssetRoot();
+        $body = $this->collapseDuplicatedAbsoluteUrls($body);
 
         return preg_replace_callback('/(<img\b[^>]*\bsrc=)(["\'])([^"\']+)(\2)/i', function ($matches) use ($root) {
-            $src = trim($matches[3]);
-            $site = preg_quote($root, '#');
-            $src = preg_replace('#^' . $site . '(https?://[^"\'>\s]+)#i', '$1', $src);
-            $src = preg_replace('#^https?://[^"\'>\s]*/(https?://[^"\'>\s]+)#i', '$1', $src);
+            $src = trim($this->collapseDuplicatedAbsoluteUrls($matches[3]));
+            $local_path = $this->extractLocalEmailImagePath($src);
+
+            if ($local_path !== '') {
+                return $matches[1] . $matches[2] . $root . ltrim($local_path, '/') . $matches[4];
+            }
 
             if ($src === '' || preg_match('#^(?:[a-z][a-z0-9+.-]*:|//|#)#i', $src)) {
                 return $matches[1] . $matches[2] . $src . $matches[4];
             }
 
-            $src = ltrim($src, '/');
-            $src = preg_replace('#^https?://[^"\'>\s]*/(https?://[^"\'>\s]+)#i', '$1', $src);
-            if (preg_match('#^(?:[a-z][a-z0-9+.-]*:|//|#)#i', $src)) {
-                return $matches[1] . $matches[2] . $src . $matches[4];
-            }
-
-            return $matches[1] . $matches[2] . $root . $src . $matches[4];
+            return $matches[1] . $matches[2] . $root . ltrim($src, '/') . $matches[4];
         }, $body);
     }
 
     private function embedLocalEmailImages($body, &$inline_images, &$inline_debug) {
-        $root = 'https://ramblerseastcheshire.org.uk/';
-        $site = preg_quote($root, '#');
         $embedded = [];
         $inline_debug = [
             'images' => 0,
@@ -160,21 +199,17 @@ class ToolsHelper {
             'last' => ''
         ];
 
-        return preg_replace_callback('/(<img\b[^>]*\bsrc=)(["\'])([^"\']+)(\2)/i', function ($matches) use ($root, $site, &$embedded, &$inline_images, &$inline_debug) {
+        return preg_replace_callback('/(<img\b[^>]*\bsrc=)(["\'])([^"\']+)(\2)/i', function ($matches) use (&$embedded, &$inline_images, &$inline_debug) {
             $inline_debug['images']++;
-            $src = trim($matches[3]);
-            $src = str_replace($root . $root, $root, $src);
-            $src = preg_replace('#^https?://[^"\'>\s]*/(https?://[^"\'>\s]+)#i', '$1', $src);
-            $src = preg_replace('#^/#', '', $src);
-            $src = preg_replace('#^' . $site . '#i', '', $src);
-            $inline_debug['last'] = substr($src, 0, 120);
+            $relative_path = $this->extractLocalEmailImagePath($matches[3]);
+            $inline_debug['last'] = substr((string) $matches[3], 0, 120);
 
-            if (!preg_match('#^images/#i', $src)) {
+            if ($relative_path === '') {
                 return $matches[0];
             }
             $inline_debug['local']++;
 
-            $relative_path = rawurldecode($src);
+            $relative_path = rawurldecode($relative_path);
             $relative_path = str_replace('\\', '/', $relative_path);
             $relative_path = preg_replace('#/+#', '/', $relative_path);
 
@@ -189,7 +224,8 @@ class ToolsHelper {
             }
             $inline_debug['found']++;
 
-            $cid = 'ra_img_' . md5($relative_path) . '@ramblerseastcheshire.org.uk';
+            $cid_host = $this->getHostFromUrl($this->getEmailAssetRoot());
+            $cid = 'ra_img_' . md5($relative_path) . '@' . ($cid_host ?: 'local');
             if (!isset($embedded[$cid])) {
                 $inline_images[$cid] = $path;
                 $embedded[$cid] = true;
