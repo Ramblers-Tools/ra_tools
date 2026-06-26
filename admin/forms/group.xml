@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+14/03/23 Added namespace for Rules 
+          Individual rules can be added for fields (eg validate = Url will apply rule UrlRule
+-->
+<form>
+    <fieldset addruleprefix="Ramblers\Component\Ra_tools\Administrator\Rule">
+	<field
+            name="id"
+            type="hidden"
+	/>
+        <field
+            name="code"
+            type="text"
+            readonly="false"
+            label="Code"
+            description="Group code"
+            size="4"
+            default=""
+        />
+        <field
+            name="name"
+            type="text"
+            label="Name"
+            description="Group name"
+            size="60"
+            default=""
+        />
+        <field
+            name="details"
+            type="editor"
+            label="Details"
+            description="Details as shown on ramblers.org.uk"
+            size="40"
+            default=""
+        /> 
+        <field
+            name="co_url"
+            type="url"
+            label="CO website"
+            description="URL of Group website on ramblers.org.uk"
+            hint="https://ramblers.org.uk"
+            class="input-xxlarge"
+            size="40"
+            default=""
+        />           
+        <field
+            name="website"
+            type="url"
+            label="Website"
+            description="URL of Group website"
+            hint="https://"
+            class="input-xxlarge"
+            default=""
+        />
+        <field name="latitude" label="Latitude" description="COM_RA_TOOLS_FORM_DESC_AREA_LATITUDE" />
+        <field name="longitude" label="Longitude" description="COM_RA_TOOLS_FORM_DESC_AREA_LONGITUDE"/>
+        <field name="state" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1" default="0">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>  
+        <field name="checked_out" type="hidden" filter="unset"/>
+        <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>            
+    </fieldset>
+</form>
+

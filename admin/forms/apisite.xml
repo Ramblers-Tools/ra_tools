@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Ramblers\Component\Ra_tools\Administrator\Field">
+  <fieldset>
+    <field name="id" 
+           type="text" 
+           readonly="true" 
+           class="readonly" 
+           default="0" 
+           description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="sub_system" 
+           type="list" 
+           required="true" 
+           label="Sub system" 
+           description="Sub system in which this is used" 
+           class="inputbox" size="1">
+            <option value="Ramblers">Ramblers</option>
+            <option value="RA Events">RA Events</option>
+            <option value="RA Members">RA Tools</option>
+            <option value="RA Tools">Ramblers</option>
+            <option value="RA Walks">RA Walks</option>
+    </field>
+    <field name="title" 
+           maxlength="100" 
+           filter="safehtml" 
+           type="text" 
+           required="true" 
+           label="Name" 
+           description="Name of the site" /> 
+    <field name="url" 
+           maxlength="100" 
+           filter="url" 
+           type="text" 
+           required="true" 
+           label="Website" 
+           description="Website from which data will be copied" />
+    <field name="token" 
+           filter="safehtml" 
+           type="text" 
+           required="true" 
+           label="Token" 
+           description="API token for the site"/>
+    <field name="colour" 
+           default="rgba(133, 132, 191, 0.1)" 
+           format="rgba"
+           type="color" 
+           required="true" 
+           
+           label="Colour" 
+           description="Colour used to display Events from this site"/>
+
+    <field name="state" 
+        default="1" 
+        type="list" 
+        label="JSTATUS" 
+        description="JFIELD_PUBLISHED_DESC" 
+        class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field
+            name="created"
+            type="calendar"
+            label="Created"
+            description="Date created"
+            readonly="true"
+            timeformat="24" 
+            filter="user_utc" 
+            format="%H:%M.%S %d-%m-%Y"   
+            default=""
+            />
+       <field
+            name="created_by"
+            type="user"
+            label="Created by"
+            description="User that created the record"
+            readonly="true"
+            />
+       <field
+            name="modified"
+            type="calendar"
+            label="Updated"
+            readonly="true"
+            timeformat="24" 
+            filter="user_utc" 
+            format="%H:%M.%S %d-%m-%Y" 
+            />
+       <field
+            name="modified_by"
+            type="user"
+            label="Updated by"
+            description="User that last updated the record"
+            readonly="true"
+            default=""
+            />    
+    
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" type="hidden" filter="unset"/>
+    
+    <field name="ordering"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

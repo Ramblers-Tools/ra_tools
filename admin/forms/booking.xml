@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Ramblers\Component\Ra_tools\Administrator\Field">
+  <fieldset>
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" type="hidden" filter="unset"/>
+    <field name="created_by" type="createdby" default="0" label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="JGLOBAL_FIELD_CREATED_BY_DESC" hidden="true" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_CREATED_BY"/>
+    <field name="modified_by" type="modifiedby" default="0" label="JGLOBAL_FIELD_MODIFIED_BY_LABEL" description="JGLOBAL_FIELD_MODIFIED_BY_DESC" hidden="true" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_MODIFIED_BY"/>
+    <field name="created" class="inputbox" format="%Y-%m-%d" timeformat="12" filter="user_utc" translateformat="false" showtime="false" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" readonly="true" label="COM_RA_EVENTS_FORM_LBL_BOOKING_CREATED" description="COM_RA_EVENTS_FORM_DESC_BOOKING_CREATED" hidden="true" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_CREATED"/>
+    <field name="modified" class="inputbox" format="%Y-%m-%d" timeformat="12" filter="user_utc" translateformat="false" showtime="false" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" readonly="true" label="COM_RA_EVENTS_FORM_LBL_BOOKING_MODIFIED" description="COM_RA_EVENTS_FORM_DESC_BOOKING_MODIFIED" hidden="true" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_MODIFIED"/>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="title" filter="safehtml" type="text" label="JGLOBAL_TITLE" description="COM_RA_EVENTS_FORM_DESC_BOOKING_TITLE" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_TITLE"/>
+    <field name="partner" maxlength="50" filter="safehtml" type="text" label="COM_RA_EVENTS_FORM_LBL_BOOKING_PARTNER" description="COM_RA_EVENTS_FORM_DESC_BOOKING_PARTNER" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_PARTNER" showon="num_persons:2"/>
+    <field name="user_id" filter="int" type="text" label="COM_RA_EVENTS_FORM_LBL_BOOKING_USER_ID" description="COM_RA_EVENTS_FORM_DESC_BOOKING_USER_ID" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_USER_ID"/>
+    <field name="event_id" default="4" filter="int" type="text" readonly="true" label="COM_RA_EVENTS_FORM_LBL_BOOKING_EVENT_ID" description="COM_RA_EVENTS_FORM_DESC_BOOKING_EVENT_ID" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_EVENT_ID"/>
+    <field name="num_persons" default="1" type="radio" required="true" label="COM_RA_EVENTS_FORM_LBL_BOOKING_NUM_PERSONS" description="COM_RA_EVENTS_FORM_DESC_BOOKING_NUM_PERSONS" hint="COM_RA_EVENTS_FORM_LBL_BOOKING_NUM_PERSONS">
+      <option value="1">COM_RA_EVENTS_BOOKINGS_NUM_PERSONS_OPTION_1</option>
+      <option value="2">COM_RA_EVENTS_BOOKINGS_NUM_PERSONS_OPTION_2</option>
+    </field>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

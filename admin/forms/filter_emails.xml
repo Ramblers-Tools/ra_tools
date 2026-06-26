@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" description="COM_RA_TOOLS_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="state" 
+            default="1" 
+            onchange="this.form.submit();"
+            type="list" label="JSTATUS" 
+            description="JFIELD_PUBLISHED_DESC" 
+            class="inputbox" size="1">
+          <option value="">-- Select Status --</option>
+          <option value="1">JPUBLISHED</option>
+          <option value="0">JUNPUBLISHED</option>
+        </field>
+        <field name="sub_sys"
+               type="list"
+               label="Sub system"
+               description="Restrict display to the chosen Sub System"
+               onchange="this.form.submit();"
+               default="- Select Sub Sys -"
+        >
+            <option value="">- Select Sub System -</option>
+            <option value="RA Events">RA Events </option>
+            <option value="RA Mailman">RA Mailman</option>
+            <option value="RA Tools">RA Tools</option>
+            <option value="RA Walks">RA Walks</option>
+        </field>
+        
+
+    </fields>
+
+    <fields name="list">
+
+        <field name="fullordering"
+               type="list"
+               label="COM_RA_TOOLS_LIST_FULL_ORDERING"
+               description="COM_RA_TOOLS_LIST_FULL_ORDERING_DESC"
+               onchange="this.form.submit();"
+               default="a.id DESC"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.title ASC">Title Ascending</option>
+            <option value="a.title DESC">Title Decending</option>
+            <option value="a.body ASC">Body Ascending</option>
+            <option value="a.body DESC">Body Decending</option>
+            <option value="a.attachments ASC">Attachments Ascending</option>
+            <option value="a.attachments DESC">Attachments Decending</option>
+            <option value="a.sender ASC">Sender Ascending</option>
+            <option value="a.sender DESC">Sender Decending</option>
+            <option value="a.addressee ASC">Addressee Ascending</option>
+            <option value="a.addressee DESC">Addressee Decending</option>
+            <option value="a.date_sent ASC">Date sent Ascending</option>
+            <option value="a.date_sent DESC">Date sent Decending</option>
+            <option value="a.sub_system ASC">Sub system Ascending</option>
+            <option value="a.sub_system DESC">Sub system Decending</option>
+            <option value="a.record_type ASC">Type Ascending</option>
+            <option value="a.record_type DESC">Type Decending</option>                 
+            <option value="a.ref ASC">Reference Ascending</option>
+            <option value="a.ref DESC">Reference Decending</option>     
+            <option value="a.id ASC">ID Ascending</option>
+            <option value="a.id DESC">ID Decending</option>                               
+        </field>
+
+       <field name="limit"
+               type="limitbox"
+               label="COM_RA_TOOLS_LIST_LIMIT"
+               description="COM_RA_TOOLS_LIST_LIMIT_DESC"
+               class="input-mini"
+               default="25"
+               onchange="this.form.submit();"
+        />
+
+    </fields>
+
+</form>
+

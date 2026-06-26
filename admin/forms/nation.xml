@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Ramblers\Component\Ra_tools\Administrator\Field">
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="code" type="text" label="COM_RA_TOOLS_FORM_LBL_NATION_CODE" description="COM_RA_TOOLS_FORM_DESC_NATION_CODE" hint="COM_RA_TOOLS_FORM_LBL_NATION_CODE"/>
+    <field name="name" type="text" label="COM_RA_TOOLS_FORM_LBL_NATION_NAME" description="COM_RA_TOOLS_FORM_DESC_NATION_NAME" hint="COM_RA_TOOLS_FORM_LBL_NATION_NAME"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

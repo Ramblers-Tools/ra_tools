@@ -1,0 +1,28 @@
+<form addfieldprefix="Ramblers\Component\Ra_tools\Administrator\Field">
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="name" maxlength="100" filter="string" type="text" required="true" 
+      label="Name" description="Name of the Cluster" 
+      hint="Enter the cluster name"/>
+    <field name="area_list" filter="safehtml" type="text" required="true" 
+    label="Area list" description="List of Area codes" hint="AA,BB,CC"/>
+    <field name="website" 
+      validate="url" 
+      type="url" 
+      label="Website" 
+      description="Website URL" 
+      hint="https://xxx.ramblers.org"/>
+    <field name="code" 
+      filter="word" type="text" 
+      required="true" label="Code" 
+      description="2 or 3 character code" 
+      hint="Enter a 2 or 3 character code"/>
+    <field
+      name="contact_id"
+      type="Contact"
+      label="Contact"
+      description="Contact name"
+    />
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

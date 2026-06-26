@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
 	<authorEmail>webmaster@bigley.me.uk</authorEmail>
 	<authorUrl>https://ramblerseastcheshire.org.uk/</authorUrl>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<description>East Cheshire Ramblers tools component.</description>
 	<namespace path="src">Ramblers\Component\Ra_tools</namespace>
 
@@ -25,9 +25,17 @@
 	</files>
 
 	<administration>
+		<menu link="option=com_ra_tools&amp;view=dashboard">RA Tools</menu>
 		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
 			<filename>index.html</filename>
+			<folder>forms</folder>
+			<folder>presets</folder>
+			<folder>services</folder>
 			<folder>sql</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
 		</files>
 	</administration>
 
