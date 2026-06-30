@@ -40,6 +40,7 @@ if (!empty($saveOrder)) {
 }
 $target_info = 'administrator/index.php?option=com_ra_tools&task=apisites.refreshEvents&mode=3&id=';
 $target_refresh = 'administrator/index.php?option=com_ra_tools&task=apisites.refreshEvents&mode=2&id=';
+$target_delivery_test = 'administrator/index.php?option=com_ra_tools&task=apisites.testDeliveryActivity&id=';
 ?>
 
 <form action="<?php echo Route::_('index.php?option=com_ra_tools&view=apisites'); ?>" method="post"
@@ -140,6 +141,11 @@ $target_refresh = 'administrator/index.php?option=com_ra_tools&task=apisites.ref
                                     echo '<td>' . $toolsHelper->imageButton('I', $target_info . $item->id) . '</td>';
                                     echo '<td>';
                                     echo $toolsHelper->buildButton($target_refresh . $item->id, 'Refresh', false, 'red');
+                                    echo '</td>';
+                                } elseif ($item->state == 1 AND ($item->sub_system == 'RA Delivery')) {
+                                    echo '<td></td>';
+                                    echo '<td>';
+                                    echo $toolsHelper->buildButton($target_delivery_test . $item->id, 'Test', false, 'red');
                                     echo '</td>';
                                 } else {
                                     echo '<td></td>';

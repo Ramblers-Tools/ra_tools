@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
 	<authorEmail>webmaster@bigley.me.uk</authorEmail>
 	<authorUrl>https://ramblerseastcheshire.org.uk/</authorUrl>
-	<version>1.0.10</version>
+	<version>1.0.11</version>
 	<description>East Cheshire Ramblers tools component.</description>
 	<namespace path="src">Ramblers\Component\Ra_tools</namespace>
 
