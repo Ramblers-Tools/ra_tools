@@ -11,7 +11,7 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/East-Cheshire-Ramblers/com_ra_tools/releases/download/v1.0.11/com_ra_tools-1.0.11.zip</downloadurl>
 		</downloads>
-		<sha256>fdfe9e902766ad0d548066223bb79718bd6c607f31f5b9ce5377b394b002641f</sha256>
+		<sha256>1c02006b21d0a1427840d65baed4808184cc01a294d02591a439cb8b64c54221</sha256>
 		<targetplatform name="joomla" version="5.*"/>
 	</update>
 </updates>
