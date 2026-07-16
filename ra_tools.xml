@@ -40,6 +40,6 @@
 	</administration>
 
 	<updateservers>
-		<server type="extension" priority="1" name="RA Tools Updates">https://raw.githubusercontent.com/East-Cheshire-Ramblers/com_ra_tools/main/updates/com_ra_tools.xml</server>
+		<server type="extension" priority="1" name="RA Tools Updates">https://raw.githubusercontent.com/Ramblers-Tools/com_ra_tools/main/updates/com_ra_tools.xml</server>
 	</updateservers>
 </extension>

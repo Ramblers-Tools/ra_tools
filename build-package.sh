@@ -6,7 +6,7 @@ manifest="ra_tools.xml"
 version="$(sed -n 's:.*<version>\(.*\)</version>.*:\1:p' "$manifest" | head -1)"
 package="${component}-${version}.zip"
 tag="v${version}"
-repo="East-Cheshire-Ramblers/com_ra_tools"
+repo="Ramblers-Tools/com_ra_tools"
 
 rm -rf dist
 mkdir -p dist
