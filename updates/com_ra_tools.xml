@@ -5,13 +5,13 @@
 		<description>East Cheshire Ramblers tools component.</description>
 		<element>com_ra_tools</element>
 		<type>component</type>
-		<version>1.0.11</version>
+		<version>1.0.12</version>
 		<client>administrator</client>
-		<infourl title="Release notes">https://github.com/Ramblers-Tools/com_ra_tools/releases/tag/v1.0.11</infourl>
+		<infourl title="Release notes">https://github.com/Ramblers-Tools/com_ra_tools/releases/tag/v1.0.12</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/Ramblers-Tools/com_ra_tools/releases/download/v1.0.11/com_ra_tools-1.0.11.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/Ramblers-Tools/com_ra_tools/releases/download/v1.0.12/com_ra_tools-1.0.12.zip</downloadurl>
 		</downloads>
-		<sha256>1c02006b21d0a1427840d65baed4808184cc01a294d02591a439cb8b64c54221</sha256>
+		<sha256>702666a3f4681ecd9cca3c307f96e4194643f02b43c9ee22b29a355474e3ac11</sha256>
 		<targetplatform name="joomla" version="5.*"/>
 	</update>
 </updates>
