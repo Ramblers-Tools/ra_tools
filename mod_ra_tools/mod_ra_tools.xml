@@ -9,9 +9,9 @@
     <authorUrl>https://ramblers.tools</authorUrl>
     <version>4.0.0</version>
     <description>Displays upcoming walks in a sidebar for Ramblers groups</description>
-    <changelogurl>https://raw.githubusercontent.com/Ramblers-Tools/com_ra_tools/main/changelog.xml</changelogurl>
+    <changelogurl>https://raw.githubusercontent.com/Ramblers-Tools/ra_tools/main/changelog.xml</changelogurl>
     <updateservers>
-        <server type="extension" name="RA Tools Update Server">https://raw.githubusercontent.com/Ramblers-Tools/com_ra_tools/main/updates/pkg_ra_tools.xml</server>
+        <server type="extension" name="RA Tools Update Server">https://raw.githubusercontent.com/Ramblers-Tools/ra_tools/main/updates/pkg_ra_tools.xml</server>
     </updateservers>
     <namespace>Ramblers\Module\Ra_tools</namespace>
     <files>
