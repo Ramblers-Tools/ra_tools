@@ -1,0 +1,77 @@
+name: Beta pre-release
+
+on:
+  push:
+    branches:
+      - beta
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read version from package manifest
+        id: version
+        run: |
+          VERSION=$(grep -oP '(?<=<version>)[^<]+' pkg_ra_tools/pkg_ra_tools.xml | head -1)
+          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Building beta for v$VERSION"
+
+      - name: Build extension zips
+        run: |
+          mkdir -p dist/packages
+
+          # com_ra_tools — everything inside com_ra_tools/
+          cd com_ra_tools
+          zip -r ../dist/packages/com_ra_tools.zip . --exclude '*/plugins/*'
+          cd ..
+
+          # plg_finder_ra_toolswalks — lives inside the component source tree
+          cd com_ra_tools/plugins/finder/ra_toolswalks
+          zip -r ../../../../dist/packages/plg_finder_ra_toolswalks.zip .
+          cd ../../../..
+
+          # mod_ra_tools
+          cd mod_ra_tools
+          zip -r ../dist/packages/mod_ra_tools.zip .
+          cd ..
+
+          # plg_webservices_ra_tools
+          cd plg_ra_tools
+          zip -r ../dist/packages/plg_webservices_ra_tools.zip .
+          cd ..
+
+      - name: Build package zip
+        run: |
+          VERSION=${{ steps.version.outputs.VERSION }}
+          mkdir -p dist/pkg
+
+          # Copy package manifest into staging dir
+          cp pkg_ra_tools/pkg_ra_tools.xml dist/pkg/pkg_ra_tools.xml
+
+          # Copy extension zips into packages/ subfolder
+          mkdir -p dist/pkg/packages
+          cp dist/packages/com_ra_tools.zip             dist/pkg/packages/
+          cp dist/packages/mod_ra_tools.zip             dist/pkg/packages/
+          cp dist/packages/plg_webservices_ra_tools.zip dist/pkg/packages/
+          cp dist/packages/plg_finder_ra_toolswalks.zip dist/pkg/packages/
+
+          # Zip the whole thing
+          cd dist/pkg
+          zip -r ../pkg_ra_tools-${VERSION}-beta.zip .
+          cd ../..
+
+      - name: Publish pre-release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.VERSION }}-beta
+          name: v${{ steps.version.outputs.VERSION }} (beta)
+          prerelease: true
+          body: |
+            Beta build from the `beta` branch. For testing only — Joomla auto-update will not offer this build to production sites.
+          files: dist/pkg_ra_tools-${{ steps.version.outputs.VERSION }}-beta.zip
