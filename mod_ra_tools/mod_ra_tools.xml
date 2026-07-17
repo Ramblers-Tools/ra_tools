@@ -8,7 +8,7 @@
     <authorEmail>support@ramblers.tools</authorEmail>
     <authorUrl>https://ramblers.tools</authorUrl>
     <version>4.0.0</version>
-    <description>This module enables the display of walks in a sidebar module</description>
+    <description>Displays upcoming walks in a sidebar for Ramblers groups</description>
     <namespace>Ramblers\Module\Ra_tools</namespace>
     <files>
         <filename module="mod_ra_tools">mod_ra_tools.php</filename>

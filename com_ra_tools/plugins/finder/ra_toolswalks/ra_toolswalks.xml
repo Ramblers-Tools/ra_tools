@@ -8,7 +8,7 @@
     <authorEmail>support@ramblers.tools</authorEmail>
     <authorUrl>https://ramblers.tools</authorUrl>
     <version>4.0.0</version>
-    <description>PLG_FINDER_RA_TOOLSWALKS_XML_DESCRIPTION</description>
+    <description>Smart search indexer for RA Tools walks</description>
     <files>
         <filename plugin="ra_toolswalks">ra_toolswalks.php</filename>
         <filename>index.html</filename>

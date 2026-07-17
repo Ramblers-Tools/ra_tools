@@ -9,7 +9,7 @@
     <authorEmail>support@ramblers.tools</authorEmail>
     <authorUrl>https://ramblers.tools</authorUrl>
     <version>4.0.0</version>
-    <description>Ramblers Tools and Utilities</description>
+    <description>Admin tools and member utilities for Ramblers groups</description>
     <namespace path="src">Ramblers\Component\Ra_tools</namespace>
     
     <scriptfile>script.php</scriptfile>
