@@ -2,12 +2,12 @@
 <extension type="package" method="upgrade">
     <name>pkg_ra_tools</name>
     <packagename>ra_tools</packagename>
-    <author>Charlie Bigley / Ramblers Tools</author>
-    <creationDate>2026</creationDate>
-    <copyright>2024-2026 Charlie Bigley / Ramblers Tools</copyright>
+    <author>Ramblers Tools</author>
+    <creationDate>2024</creationDate>
+    <copyright>2024-2026 Ramblers Tools</copyright>
     <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
-    <authorEmail>webmaster@bigley.me.uk</authorEmail>
-    <authorUrl>https://github.com/Ramblers-Tools/com_ra_tools</authorUrl>
+    <authorEmail>support@ramblers.tools</authorEmail>
+    <authorUrl>https://ramblers.tools</authorUrl>
     <version>4.0.0</version>
     <description>Installs the RA Tools component, module and plugins for Ramblers groups</description>
     <changelogurl>https://raw.githubusercontent.com/Ramblers-Tools/com_ra_tools/main/changelog.xml</changelogurl>
