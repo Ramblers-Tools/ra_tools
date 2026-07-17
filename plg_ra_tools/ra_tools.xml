@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="webservices" method="upgrade">
     <name>PLG_WEBSERVICES_RA_TOOLS</name>
-    <author>Charlie Bigley</author>
-    <creationDate>10 Mar 2026</creationDate>
-    <copyright>2026 Charlie Bigley</copyright>
-    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-    <authorEmail>charlie@bigley.me.uk</authorEmail>
-    <version>1.0.0</version>
+    <author>Ramblers Tools</author>
+    <creationDate>2024</creationDate>
+    <copyright>2024-2026 Ramblers Tools</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <authorEmail>support@ramblers.tools</authorEmail>
+    <authorUrl>https://ramblers.tools</authorUrl>
+    <version>4.0.0</version>
     <description>PLG_WEBSERVICES_RA_TOOLS_XML_DESCRIPTION</description>
     <namespace path="src">Ramblers\Plugin\WebServices\Ra_tools</namespace>
     <files>

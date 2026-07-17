@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="4.0" type="plugin" group="finder">
     <name>plg_finder_ra_toolswalks</name>
-    <author>Charlie Bigley</author>
-    <creationDate>2024-03-18</creationDate>
-    <copyright>2024 Charlie Bigley</copyright>
+    <author>Ramblers Tools</author>
+    <creationDate>2024</creationDate>
+    <copyright>2024-2026 Ramblers Tools</copyright>
     <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
-    <authorEmail>webmaster@bigley.me.uk</authorEmail>
-    <authorUrl>https://staffordshireramblers.org</authorUrl>
-    <version>CVS: 3.0.0</version>
-    <description>PLG_FINDER_Ramblers Tools and Utilities</description>
+    <authorEmail>support@ramblers.tools</authorEmail>
+    <authorUrl>https://ramblers.tools</authorUrl>
+    <version>4.0.0</version>
+    <description>PLG_FINDER_RA_TOOLSWALKS_XML_DESCRIPTION</description>
     <files>
         <filename plugin="ra_toolswalks">ra_toolswalks.php</filename>
         <filename>index.html</filename>
@@ -20,7 +20,4 @@
     </languages>
     <config>
     </config>
-    <updateservers>
-        <server type="extension" priority="1" name="com_ra_tools">https://www.component-creator.com/index.php?task=builder.preupdatecheckhook&amp;option=com_combuilder&amp;component=NzQ2NjgtMjExMTA3</server>
-    </updateservers>
 </extension>
