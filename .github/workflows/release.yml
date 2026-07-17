@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout
@@ -69,7 +70,6 @@ jobs:
           VERSION=${{ steps.version.outputs.VERSION }}
           SHA=$(sha256sum dist/pkg_ra_tools-${VERSION}.zip | awk '{print $1}')
           echo "SHA=$SHA" >> "$GITHUB_OUTPUT"
-          echo "sha256: $SHA"
 
       - name: Publish release
         uses: softprops/action-gh-release@v2
@@ -81,8 +81,44 @@ jobs:
             Full release of RA Tools v${{ steps.version.outputs.VERSION }}.
 
             Install or update via Joomla Extensions → Install, or use the Joomla auto-update system if you have a previous version installed.
-
-            **sha256:** `${{ steps.sha.outputs.SHA }}`
-
-            After release, update `updates/pkg_ra_tools.xml` with this sha256 and open a PR to `main`.
           files: dist/pkg_ra_tools-${{ steps.version.outputs.VERSION }}.zip
+
+      - name: Update update manifest
+        run: |
+          VERSION=${{ steps.version.outputs.VERSION }}
+          SHA=${{ steps.sha.outputs.SHA }}
+          DOWNLOAD_URL="https://github.com/Ramblers-Tools/ra_tools/releases/download/v${VERSION}/pkg_ra_tools-${VERSION}.zip"
+          INFO_URL="https://github.com/Ramblers-Tools/ra_tools/releases/tag/v${VERSION}"
+
+          cat > updates/pkg_ra_tools.xml <<EOF
+          <?xml version="1.0" encoding="utf-8"?>
+          <updates>
+              <update>
+                  <name>pkg_ra_tools</name>
+                  <description>RA Tools package (component, module, plugins)</description>
+                  <element>pkg_ra_tools</element>
+                  <type>package</type>
+                  <version>${VERSION}</version>
+                  <infourl title="Release notes">${INFO_URL}</infourl>
+                  <downloads>
+                      <downloadurl type="full" format="zip">${DOWNLOAD_URL}</downloadurl>
+                  </downloads>
+                  <sha256>${SHA}</sha256>
+                  <targetplatform name="joomla" version="5.*"/>
+              </update>
+          </updates>
+          EOF
+
+      - name: Open PR to update manifest
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update-manifest-v${{ steps.version.outputs.VERSION }}
+          base: main
+          commit-message: "Update manifest for v${{ steps.version.outputs.VERSION }}"
+          title: "Update update manifest for v${{ steps.version.outputs.VERSION }}"
+          body: |
+            Automated update of `updates/pkg_ra_tools.xml` following the v${{ steps.version.outputs.VERSION }} release.
+
+            Sets the correct sha256 so Joomla auto-update can verify the package.
+          delete-branch: true
