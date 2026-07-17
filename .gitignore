@@ -1,2 +1,7 @@
-.DS_Store
+*.zip
 dist/
+build/
+.DS_Store
+.idea/
+.vscode/
+nbproject/
