@@ -56,14 +56,26 @@ Edit **`pkg_ra_tools/pkg_ra_tools.xml`** and update the `<version>` tag:
 
 Commit and push to `beta`.
 
-### 3. Open a PR from `beta` → `main`
+### 3. Open a PR from `beta` → `main` and merge it
 
 - Title: `Release vX.Y.Z` (or a short description of what's in this release)
 - Review the diff, then merge.
 
-### 4. GitHub builds the release automatically
+### 4. Push a version tag to trigger the release
 
-Merging to `main` triggers `.github/workflows/release.yml`, which:
+After merging, tag the commit on `main` and push the tag:
+
+```bash
+git fetch origin
+git tag v4.1.0 origin/main
+git push origin v4.1.0
+```
+
+Or from any git client that supports tagging — GitHub Desktop: **Repository → Create Tag**.
+
+### 5. GitHub builds the release automatically
+
+Pushing a `v*` tag triggers `.github/workflows/release.yml`, which:
 
 1. Reads the version from `pkg_ra_tools/pkg_ra_tools.xml`
 2. Builds zips for each extension:
@@ -77,7 +89,7 @@ Merging to `main` triggers `.github/workflows/release.yml`, which:
 6. Updates `updates/pkg_ra_tools.xml` with the new version, download URL and sha256
 7. **Automatically opens a PR** titled `Update update manifest for v<version>`
 
-### 5. Merge the auto-opened manifest PR
+### 6. Merge the auto-opened manifest PR
 
 Once the release workflow finishes (usually under 2 minutes), a PR will appear:
 
