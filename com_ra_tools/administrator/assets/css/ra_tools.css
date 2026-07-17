@@ -1,0 +1,44 @@
+.icon-48-walks {
+      background-image: url(../images/l_walks.png);
+      padding-left:60px!important;
+}
+
+.icon-48-walk {
+      background-image: url(../images/l_walks.png);
+      padding-left:60px!important;
+}
+
+.color-box-walks { 
+      float: left;      width: 15px;      height: 15px;      margin-right: 5px;      border: 1px solid rgba(0, 0, 0, .2);}
+
+.icon-48-areas {
+      background-image: url(../images/l_areas.png);
+      padding-left:60px!important;
+}
+
+.icon-48-area {
+      background-image: url(../images/l_areas.png);
+      padding-left:60px!important;
+}
+
+.color-box-areas { 
+      float: left;      width: 15px;      height: 15px;      margin-right: 5px;      border: 1px solid rgba(0, 0, 0, .2);}
+
+.icon-48-nations {
+      background-image: url(../images/l_nations.png);
+      padding-left:60px!important;
+}
+
+.icon-48-nation {
+      background-image: url(../images/l_nations.png);
+      padding-left:60px!important;
+}
+
+.color-box-nations { 
+      float: left;      width: 15px;      height: 15px;      margin-right: 5px;      border: 1px solid rgba(0, 0, 0, .2);}
+
+
+
+.other-filters{
+    padding: 0 14px;
+}

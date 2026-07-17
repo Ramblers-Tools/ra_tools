@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<component>
+  <table action="add" table_name="#__ra_nations" storage_engine="InnoDB" collation="utf8mb4_unicode_ci">
+    <field field_name="id" field_type="INT" field_length="11" is_autoincrement="1" description=""/>
+    <field field_name="code" field_type="VARCHAR" field_length="2" description=""/>
+    <field field_name="name" field_type="VARCHAR" field_length="100" description=""/>
+    <field field_name="attachment" field_type="TEXT" description=""/>
+  </table>
+  <table action="add" table_name="#__ra_areas" storage_engine="InnoDB" collation="utf8mb4_unicode_ci">
+    <field field_name="id" field_type="INT" field_length="11" is_autoincrement="1" description=""/>
+    <field action="change" field_name="nation_id" field_type="INT" default="0" field_length="11" description=""/>
+    <field field_name="code" field_type="VARCHAR" field_length="2" description=""/>
+    <field field_name="name" field_type="VARCHAR" field_length="100" description=""/>
+    <field field_name="details" field_type="TEXT" description=""/>
+    <field field_name="website" field_type="VARCHAR" field_length="150" description=""/>
+    <field field_name="co_url" field_type="VARCHAR" field_length="150" description=""/>
+    <field field_name="cluster" field_type="VARCHAR" field_length="3" description=""/>
+    <field field_name="chair_id" field_type="INT" field_length="11" description=""/>
+    <field field_name="latitude" field_type="DECIMAL" field_length="14,12" description=""/>
+    <field field_name="longitude" field_type="DECIMAL" field_length="15,13" description=""/>
+    <field field_name="state" field_type="TINYINT" field_length="1" description=""/>
+    <field field_name="checked_out" field_type="INT" field_length="11" description=""/>
+    <field field_name="checked_out_time" field_type="DATETIME" description=""/>
+    <field field_name="created_by" field_type="INT" field_length="11" description=""/>
+  </table>
+  <table action="add" table_name="#__ra_walks" storage_engine="InnoDB" collation="utf8mb4_unicode_ci">
+    <field field_name="id" field_type="INT" field_length="11" is_autoincrement="1" description=""/>
+    <field field_name="meeting_postcode" field_type="VARCHAR" field_length="8" description=""/>
+    <field field_name="finish_time" field_type="VARCHAR" field_length="5" description=""/>
+    <field field_name="created_by" field_type="INT" field_length="11" description=""/>
+    <field field_name="group_code" field_type="VARCHAR" field_length="4" description=""/>
+    <field field_name="meeting_latitude" field_type="DECIMAL" field_length="14,12" description=""/>
+    <field field_name="duration" field_type="INT" field_length="11" description=""/>
+    <field field_name="created" field_type="DATETIME" description=""/>
+    <field field_name="walk_date" field_type="DATETIME" description=""/>
+    <field field_name="meeting_details" field_type="TEXT" description=""/>
+    <field field_name="count_walkers" field_type="TINYINT" field_length="4" description=""/>
+    <field field_name="modified" field_type="DATETIME" description=""/>
+    <field field_name="title" field_type="VARCHAR" field_length="120" description=""/>
+    <field field_name="meeting_longitude" field_type="DECIMAL" field_length="14,12" description=""/>
+    <field field_name="max_walkers" field_type="INT" field_length="11" description=""/>
+    <field field_name="modified_by" field_type="INT" field_length="11" description=""/>
+    <field field_name="description" field_type="TEXT" description=""/>
+    <field field_name="start_time" field_type="VARCHAR" field_length="5" description=""/>
+    <field field_name="checked_out" field_type="INT" field_length="11" description=""/>
+    <field field_name="start_gridref" field_type="VARCHAR" field_length="12" description=""/>
+    <field field_name="notes" field_type="VARCHAR" field_length="255" description=""/>
+    <field field_name="checked_out_time" field_type="DATETIME" description=""/>
+    <field field_name="additional_notes" field_type="VARCHAR" field_length="255" description=""/>
+    <field field_name="start_longitude" field_type="DECIMAL" field_length="10,8" description=""/>
+    <field field_name="published" field_type="TINYINT" field_length="4" description=""/>
+    <field field_name="circular_or_linear" field_type="CHAR" field_length="1" description=""/>
+    <field field_name="start_latitude" field_type="DECIMAL" field_length="10,8" description=""/>
+    <field field_name="restriction" field_type="VARCHAR" field_length="1" description=""/>
+    <field field_name="start_postcode" field_type="VARCHAR" field_length="8" description=""/>
+    <field field_name="difficulty" field_type="VARCHAR" field_length="10" description=""/>
+    <field field_name="start_w3w" field_type="VARCHAR" field_length="12" description=""/>
+    <field field_name="distance_miles" field_type="DECIMAL" field_length="4,1" description=""/>
+    <field field_name="start_details" field_type="TEXT" description=""/>
+    <field field_name="distance_km" field_type="DECIMAL" field_length="4,1" description=""/>
+    <field field_name="meeting_time" field_type="VARCHAR" field_length="5" description=""/>
+    <field field_name="pace" field_type="VARCHAR" field_length="50" description=""/>
+    <field field_name="meeting_gridref" field_type="VARCHAR" field_length="12" description=""/>
+    <field field_name="ascent_feet" field_type="VARCHAR" field_length="10" description=""/>
+    <field field_name="ascent_metres" field_type="VARCHAR" field_length="10" description=""/>
+    <field field_name="walking_time" field_type="VARCHAR" field_length="5" description=""/>
+    <field field_name="finishing_time" field_type="VARCHAR" field_length="5" description=""/>
+    <field field_name="organising_group" field_type="VARCHAR" field_length="4" description=""/>
+    <field field_name="contact_display_name" field_type="VARCHAR" field_length="100" description=""/>
+    <field field_name="contact_membership_no" field_type="INT" field_length="11" description=""/>
+    <field field_name="contact_email" field_type="VARCHAR" field_length="255" description=""/>
+    <field field_name="contact_tel1" field_type="VARCHAR" field_length="150" description=""/>
+    <field field_name="contact_tel2" field_type="VARCHAR" field_length="15" description=""/>
+    <field field_name="contact_is_walk_leader" field_type="CHAR" field_length="1" description=""/>
+    <field field_name="walk_id" field_type="INT" field_length="11" description=""/>
+    <field field_name="walk_leader" field_type="VARCHAR" field_length="30" description=""/>
+    <field field_name="grade_local" field_type="VARCHAR" field_length="10" description=""/>
+    <field field_name="route_id" field_type="VARCHAR" field_length="10" description=""/>
+    <field field_name="state" field_type="INT" field_length="11" description=""/>
+    <field field_name="leader_user_id" field_type="INT" field_length="11" description=""/>
+    <field field_name="ordering" field_type="INT" field_length="11" description=""/>
+  </table>
+</component>

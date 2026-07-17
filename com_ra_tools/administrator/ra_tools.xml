@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+12/12/24 Created from version 3.0.1
+21/12/24 Deleted walks, added images to media, deleted: menu for nations, finder plugin
+13/01/25 Update to 3.0.4, 
+19/02/25 deleted  view="dashboard" from menu
+23/02/25 build 3.0.5  (from git) - created two separate menus
+23/02/25 reinstated <menu view="dashboard">RA Tools</menu>
+31/03/25 changed <name> from RA Tools to com_ra_tools>
+08/04/25 CB 3.0.6: remove version attribute, include logfile, no sub-menu
+14/04/25 CB 3.1.0: view users
+29/04/25 CB 3.2.0 Date matrix, add <element>, change <name> to RA Tools
+13/06/25 CB new dashboard option for import_reports
+19/01/26 CB Changes to implement new radius selection, plus reinstate scriptfile
+-->
+<extension type="component" method="upgrade">
+    <name>RA Tools</name>
+    <element>com_ra_tools</element>
+    <creationDate>16 July 26</creationDate>
+    <copyright>2024 Charlie Bigley</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <author>Charlie Bigley</author>
+    <authorEmail>webmaster@bigley.me.uk</authorEmail>
+    <authorUrl>https://staffordshireramblers.org</authorUrl>
+    <version>3.7.5</version>
+    <description>Ramblers Tools and Utilities</description>
+    <namespace path="src">Ramblers\Component\Ra_tools</namespace>
+    
+    <scriptfile>script.php</scriptfile>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <files folder="site">        
+        <folder>forms</folder>
+        <folder>languages</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media destination="com_ra_tools" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>bullseye.png</filename>
+        <filename>cross.png</filename>
+        <filename>download.png</filename>
+        <filename>email.png</filename>
+        <filename>email2.png</filename>        
+        <filename>google.png</filename>
+        <filename>gps.png</filename>
+        <filename>icon-cog.png</filename>  
+        <filename>info.png</filename>        
+        <filename>joomla.asset.json</filename>
+        <filename>link.png</filename>
+        <filename>logo_90px.png</filename>
+        <filename>map_pin.png</filename>
+        <filename>paperclip.png</filename>        
+        <filename>print.png</filename>
+        <filename>tick.png</filename>
+        <filename>upload.png</filename>
+        <filename>walksfinder.png</filename>            
+    </media>
+    <languages folder="site/languages">     
+	<language tag="en-GB">en-GB/com_ra_tools.ini</language>
+    </languages>
+    <administration>
+        <menu link="option=com_ra_tools&amp;view=dashboard">RA Tools</menu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>forms</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
+            <folder>sql</folder>
+        </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="en-GB">en-GB/com_ra_tools.ini</language>
+			<language tag="en-GB">en-GB/com_ra_tools.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <modules>
+		<module module="mod_ra_tools" />
+	</modules>
+
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

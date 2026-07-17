@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="webservices" method="upgrade">
+    <name>PLG_WEBSERVICES_RA_TOOLS</name>
+    <author>Charlie Bigley</author>
+    <creationDate>10 Mar 2026</creationDate>
+    <copyright>2026 Charlie Bigley</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>charlie@bigley.me.uk</authorEmail>
+    <version>1.0.0</version>
+    <description>PLG_WEBSERVICES_RA_TOOLS_XML_DESCRIPTION</description>
+    <namespace path="src">Ramblers\Plugin\WebServices\Ra_tools</namespace>
+    <files>
+        <folder plugin="ra_tools">services</folder>
+        <folder>src</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_webservices_ra_tools.ini</language>
+        <language tag="en-GB">language/en-GB/plg_webservices_ra_tools.sys.ini</language>
+    </languages>
+</extension>

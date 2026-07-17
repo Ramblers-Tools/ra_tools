@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_ra_tools",
+  "version": "CVS: 3.0.0",
+  "license": "GNU General Public License version 3 or later; see LICENSE.txt",
+  "assets": [
+    {
+      "name": "com_ra_tools.admin",
+      "type": "style",
+      "uri": "com_ra_tools/admin.css"
+    },
+    {
+      "name": "com_ra_tools.admin",
+      "type": "script",
+      "uri": "com_ra_tools/admin.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+        "name": "com_ra_tools.list",
+        "type": "style",
+        "uri": "com_ra_tools/list.css"
+    },
+    {
+        "name": "com_ra_tools.dashboard",
+        "type": "style",
+        "uri": "com_ra_tools/dashboard.css"
+    }
+  ]
+}

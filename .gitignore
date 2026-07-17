@@ -1,2 +1,12 @@
-.DS_Store
+# Build artifacts — zips are published as GitHub Release assets, never committed
+*.zip
 dist/
+build/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+nbproject/
