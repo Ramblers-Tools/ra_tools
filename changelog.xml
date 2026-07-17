@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelogs>
+    <changelog>
+        <element>pkg_ra_tools</element>
+        <type>package</type>
+        <version>4.0.0</version>
+        <note>
+            <item><![CDATA[First release as a unified Ramblers Tools package]]></item>
+            <item><![CDATA[Combines com_ra_tools component, mod_ra_tools module, webservices plugin and finder plugin into a single installable package]]></item>
+            <item><![CDATA[Standardised author, licence and version metadata across all extensions]]></item>
+            <item><![CDATA[Added Joomla auto-update support via GitHub Releases]]></item>
+        </note>
+    </changelog>
+</changelogs>

@@ -10,6 +10,10 @@
     <authorUrl>https://ramblers.tools</authorUrl>
     <version>4.0.0</version>
     <description>Admin tools and member utilities for Ramblers groups</description>
+    <changelogurl>https://raw.githubusercontent.com/Ramblers-Tools/com_ra_tools/main/changelog.xml</changelogurl>
+    <updateservers>
+        <server type="extension" name="RA Tools Update Server">https://raw.githubusercontent.com/Ramblers-Tools/com_ra_tools/main/updates/pkg_ra_tools.xml</server>
+    </updateservers>
     <namespace path="src">Ramblers\Component\Ra_tools</namespace>
     
     <scriptfile>script.php</scriptfile>
