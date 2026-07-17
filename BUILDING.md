@@ -46,15 +46,36 @@ We use semantic versioning:
 | New feature | `4.0.0` → `4.1.0` |
 | Breaking change | `4.0.0` → `5.0.0` |
 
-### 2. Bump the version in the package manifest
+### 2. Update the changelog
 
-Edit **`pkg_ra_tools/pkg_ra_tools.xml`** and update the `<version>` tag:
+Edit **`changelog.xml`** and add an entry for the new version above the existing ones:
+
+```xml
+<changelog>
+    <element>pkg_ra_tools</element>
+    <type>package</type>
+    <version>4.1.0</version>
+    <date>2026-07-17</date>
+    <channel>stable</channel>
+    <tag>stable</tag>
+    <entry>
+        <type>Feature</type>
+        <content><![CDATA[Short description of what changed]]></content>
+    </entry>
+</changelog>
+```
+
+Common `<type>` values: `Feature`, `Fix`, `Security`, `Language`, `Removed`.
+
+### 3. Bump the version in the package manifest
+
+Edit **`pkg_ra_tools/pkg_ra_tools.xml`** and update the `<version>` tag to match:
 
 ```xml
 <version>4.1.0</version>
 ```
 
-Commit and push to `beta`.
+Commit both files and push to `beta`.
 
 ### 3. Open a PR from `beta` → `main` and merge it
 
@@ -106,7 +127,7 @@ Merge it. This updates the Joomla update server file so production sites running
 | `pkg_ra_tools/pkg_ra_tools.xml` | Package manifest. Controls version, included extensions, and the update server URL. **Bump `<version>` here before each release.** |
 | `updates/pkg_ra_tools.xml` | Joomla update server manifest. Updated automatically by the release workflow. Do not edit by hand. |
 | `changelog.xml` | Human-readable changelog. Update this alongside `<version>` for each release. |
-| `.github/workflows/release.yml` | Release workflow — triggered on push to `main`. |
+| `.github/workflows/release.yml` | Release workflow — triggered on push of a `v*` tag. |
 | `.github/workflows/beta.yml` | Beta pre-release workflow — triggered on push to `beta`. |
 
 ---
