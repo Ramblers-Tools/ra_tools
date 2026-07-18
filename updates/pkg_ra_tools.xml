@@ -5,12 +5,12 @@
         <description>RA Tools package (component, module, plugins)</description>
         <element>pkg_ra_tools</element>
         <type>package</type>
-        <version>4.0.1</version>
-        <infourl title="Release notes">https://github.com/Ramblers-Tools/ra_tools/releases/tag/v4.0.1</infourl>
+        <version>4.0.2</version>
+        <infourl title="Release notes">https://github.com/Ramblers-Tools/ra_tools/releases/tag/v4.0.2</infourl>
         <downloads>
-            <downloadurl type="full" format="zip">https://github.com/Ramblers-Tools/ra_tools/releases/download/v4.0.1/pkg_ra_tools-4.0.1.zip</downloadurl>
+            <downloadurl type="full" format="zip">https://github.com/Ramblers-Tools/ra_tools/releases/download/v4.0.2/pkg_ra_tools-4.0.2.zip</downloadurl>
         </downloads>
-        <sha256>d3ba3531e689f1969a4f8039e105963d0be9d434b38ec5bebf4e82cb21bc3e75</sha256>
+        <sha256>9e77d4bc4729eede9fda87a08d05238a73db77c8c359c66960b495fd409eeba2</sha256>
         <targetplatform name="joomla" version="5.*"/>
     </update>
 </updates>
