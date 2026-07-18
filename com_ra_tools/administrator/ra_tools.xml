@@ -69,6 +69,7 @@
         <files folder="administrator">
             <filename>access.xml</filename>
             <filename>config.xml</filename>
+            <folder>assets</folder>
             <folder>forms</folder>
             <folder>src</folder>
             <folder>tmpl</folder>
@@ -76,10 +77,9 @@
             <folder>presets</folder>
             <folder>sql</folder>
         </files>
-        <languages folder="administrator/languages">
-            
-			<language tag="en-GB">en-GB/com_ra_tools.ini</language>
-			<language tag="en-GB">en-GB/com_ra_tools.sys.ini</language>
+        <languages folder="administrator">
+            <language tag="en-GB">languages/en-GB/com_ra_tools.ini</language>
+            <language tag="en-GB">languages/en-GB/com_ra_tools.sys.ini</language>
         </languages>
     </administration>
     <config>
