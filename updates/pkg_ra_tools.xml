@@ -5,6 +5,7 @@
         <description>RA Tools package (component, module, plugins)</description>
         <element>pkg_ra_tools</element>
         <type>package</type>
+        <client>site</client>
         <version>4.0.3</version>
         <infourl title="Release notes">https://github.com/Ramblers-Tools/ra_tools/releases/tag/v4.0.3</infourl>
         <downloads>

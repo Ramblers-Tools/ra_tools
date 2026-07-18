@@ -110,6 +110,7 @@ jobs:
                   <description>RA Tools package (component, module, plugins)</description>
                   <element>pkg_ra_tools</element>
                   <type>package</type>
+                  <client>site</client>
                   <version>${VERSION}</version>
                   <infourl title="Release notes">${INFO_URL}</infourl>
                   <downloads>
