@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="4.0" type="plugin" group="finder">
+<extension version="4.0" type="plugin" group="finder" method="upgrade">
     <name>plg_finder_ra_toolswalks</name>
     <author>Ramblers Tools</author>
     <creationDate>2024</creationDate>
