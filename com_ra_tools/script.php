@@ -9,6 +9,7 @@
  * 03/11/25 CB use built in function to delete files and folders (3.4.5)
  * 21/01/26 CB 3.5.1 correct ra_emails addressee_email
  * 17/06/26 CB api_sites: sub_system -> varchar(12)
+ * 19/07/26 CB api_sites: sub_system -> varchar(20) (12 truncated existing data on upgrade)
  */
 
 \defined('_JEXEC') or die;
@@ -358,7 +359,7 @@ class Com_Ra_toolsInstallerScript {
                 }
             }
             if (version_compare($this->current_version, '3.7.4', 'le')) {
-                $this->checkColumn('ra_api_sites', 'sub_system', 'U', 'VARCHAR(12) NOT NULL;');
+                $this->checkColumn('ra_api_sites', 'sub_system', 'U', 'VARCHAR(20) NOT NULL;');
             }
         }
 
