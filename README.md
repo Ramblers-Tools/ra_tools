@@ -25,11 +25,11 @@ Joomla's built-in update system will detect new releases automatically (the upda
 
 | Branch | Purpose |
 |--------|---------|
-| `main` | Stable, released code. Protected — merge via PR only. Every push here triggers the release workflow. |
+| `main` | Stable, released code. Protected — merge via PR only. Pushing a version tag (`vX.Y.Z`) here triggers the release workflow. |
 | `beta` | Integration branch. New features land here first; a passing beta build produces a pre-release. |
 | feature branches | Short-lived branches cut from `beta` for individual changes. |
 
-Releases are tagged automatically by the GitHub Actions release workflow when a PR is merged to `main`.
+Merging a PR into `main` does **not** by itself trigger a release — a maintainer tags the merged commit (`vX.Y.Z`) and pushes the tag, which is what starts the GitHub Actions release workflow. See [CONTRIBUTING.md](CONTRIBUTING.md#releasing) for the full steps.
 
 ## Development setup
 
