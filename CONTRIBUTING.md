@@ -22,18 +22,24 @@ feature branch → PR to beta → PR to main (release)
 
 ### Releasing
 
-Merging a PR into `main` triggers `.github/workflows/release.yml`, which:
+Merging the `beta` → `main` PR does **not** trigger a release by itself. After it's merged, tag the merged commit and push the tag — that's what triggers `.github/workflows/release.yml`:
+
+```bash
+git fetch origin
+git tag vX.Y.Z origin/main
+git push origin vX.Y.Z
+```
+
+The release workflow then:
 
 1. Reads the version from `pkg_ra_tools/pkg_ra_tools.xml`.
 2. Builds and zips all extensions.
 3. Creates a GitHub Release with the package zip attached.
-4. Prints the `sha256` of the zip in the release notes.
+4. Computes the `sha256` of the zip.
+5. Updates `updates/pkg_ra_tools.xml` with the new version, download URL, and sha256.
+6. Opens a PR titled `Update update manifest for vX.Y.Z` against `main` with that change.
 
-After the release workflow completes:
-
-1. Copy the `sha256` from the release notes.
-2. Update `updates/pkg_ra_tools.xml` with the new version, download URL, and sha256.
-3. Open a PR to `main` with just that change so Joomla's auto-update system picks it up.
+Review and merge that PR so Joomla's auto-update system picks up the new version.
 
 ### Commit messages
 
