@@ -18,9 +18,6 @@ class HtmlView extends BaseHtmlView {
     protected $params;
 
     public function display($tpl = null) {
-        $app = Factory::getApplication();
-        $this->user = Factory::getApplication()->loadIdentity();
-
         $this->params = ComponentHelper::getParams('com_ra_tools');
 
         parent::display($tpl);
