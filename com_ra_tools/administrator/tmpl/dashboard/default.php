@@ -24,6 +24,7 @@
  * 04/05/26 CB add block for Members
  * 07/06/26 CB show email deliveries
  * 06/07/26 CB add link to Standard Articles
+ * 20/07/26 add RA SSO block
  */
 // No direct access
 \defined('_JEXEC') or die;
@@ -345,6 +346,17 @@ if (ComponentHelper::isEnabled('com_ra_paths', true)) {
     $blocks[] = [
         'title' => 'Path Maintenance',
         'items' => $pathsItems
+    ];
+}
+// ========== RA SSO BLOCK ==========
+if (ComponentHelper::isEnabled('com_miniorange_oauth', true)) {
+    $ssoItems = [
+        ['label' => 'SSO Account Setup', 'url' => 'index.php?option=com_miniorange_oauth'],
+    ];
+
+    $blocks[] = [
+        'title' => 'RA SSO',
+        'items' => $ssoItems
     ];
 }
 ?>
