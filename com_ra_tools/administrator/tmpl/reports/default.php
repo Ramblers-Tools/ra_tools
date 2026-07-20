@@ -82,42 +82,31 @@ $reports['Show Ramblers menus'] = 'administrator/index.php?option=com_ra_tools&t
 <form action="<?php echo Route::_('index.php?option=com_ra_tools&view=reports'); ?>" method="post" name="reportsForm" id="reportsForm">
     <div id="j-main-container" class="span10">
         <div class="clearfix"> </div>
-        <?php
-        echo '<ul>';
-        foreach ($reports as $caption => $task) {
-            echo '<li>' . $toolsHelper->buildLink($task, $caption) . '</li>';
-        }
-        echo '</ul>';
 
+        <div class="dashboard-grid">
+            <div class="dashboard-block">
+                <div class="block-header">
+                    <h2>System reports</h2>
+                </div>
+
+                <div class="block-content">
+                    <?php
+                    echo '<ul>';
+                    foreach ($reports as $caption => $task) {
+                        echo '<li>' . $toolsHelper->buildLink($task, $caption) . '</li>';
+                    }
+                    echo '</ul>';
+                    ?>
+                </div>
+            </div>
+        </div>
+        <?php
         $target = 'administrator/index.php?option=com_ra_tools&view=dashboard';
         echo $toolsHelper->backButton($target);
         ?>
         <input type="hidden" name="task" value="" />
         <?php echo JHtml::_('form.token'); ?>
     </div>
-
-    <div class="dashboard-grid">
-        <div class="dashboard-block">
-            <div class="block-header">
-                <h2>System reports</h2>
-            </div>
-
-            <div class="block-content">
-                <?php
-                echo '<ul>';
-                foreach ($reports as $caption => $task) {
-                    echo '<li>' . $toolsHelper->buildLink($task, $caption) . '</li>';
-                }
-                echo '</ul>';
-                ?>
-            </div>
-        </div>
-    </div>
-    <?php
-    $target = 'administrator/index.php?option=com_ra_tools&view=dashboard';
-    echo $toolsHelper->backButton($target);
-    ?>
-</div>
 </form>
 <?php
 echo "<!-- End of code from ' . __file . ' -->" . PHP_EOL;
