@@ -24,6 +24,8 @@
  * 04/05/26 CB add block for Members
  * 07/06/26 CB show email deliveries
  * 06/07/26 CB add link to Standard Articles
+ * 20/07/26 add RA SSO block
+ * 20/07/26 add RA Delivery block, move List Email exceptions out of System Tools
  */
 // No direct access
 \defined('_JEXEC') or die;
@@ -60,9 +62,6 @@ if ($toolsHelper->isSuperuser()) {
 
     $sysToolsItems[] = ['label' => 'Standard Articles', 'url' => 'index.php?option=com_ra_tools&view=standardarticles'];
     $sysToolsItems[] = ['label' => 'API sites', 'url' => 'index.php?option=com_ra_tools&view=apisites'];
-    if (ComponentHelper::isEnabled('com_ra_delivery', true)) {
-        $sysToolsItems[] = ['label' => 'List Email exceptions', 'url' => 'index.php?option=com_ra_delivery'];
-    }
     $sysToolsItems[] = ['label' => 'Access Configuration Wizard', 'url' => 'index.php?option=com_ra_tools&task=system.AccessWizard'];
     $sysToolsItems[] = ['label' => 'System Reports', 'url' => 'index.php?option=com_ra_tools&view=reports'];
     $target = $jsonHelper->setUrl('organisation', '');
@@ -345,6 +344,36 @@ if (ComponentHelper::isEnabled('com_ra_paths', true)) {
     $blocks[] = [
         'title' => 'Path Maintenance',
         'items' => $pathsItems
+    ];
+}
+// ========== RA SSO BLOCK ==========
+if (ComponentHelper::isEnabled('com_miniorange_oauth', true)) {
+    $ssoItems = [
+        ['label' => 'SSO Account Setup', 'url' => 'index.php?option=com_miniorange_oauth'],
+    ];
+
+    $blocks[] = [
+        'title' => 'RA SSO',
+        'items' => $ssoItems
+    ];
+}
+// ========== RA DELIVERY BLOCK ==========
+if (ComponentHelper::isEnabled('com_ra_delivery', true)) {
+    $deliveryCanDo = ContentHelper::getActions('com_ra_delivery');
+
+    $deliveryItems = [
+        ['label' => 'List Email exceptions', 'url' => 'index.php?option=com_ra_delivery'],
+    ];
+
+    if ($deliveryCanDo->get('core.admin')) {
+        $versions = $toolsHelper->getVersions('com_ra_delivery');
+        $deliveryItems[] = ['label' => 'Configure com_ra_delivery (v' . $versions->component . ')', 'url' => 'index.php?option=com_config&view=component&component=com_ra_delivery'];
+        $deliveryItems[] = ['label' => 'DB version: ' . $versions->db_version, 'url' => '#', 'disabled' => true];
+    }
+
+    $blocks[] = [
+        'title' => 'RA Delivery',
+        'items' => $deliveryItems
     ];
 }
 ?>

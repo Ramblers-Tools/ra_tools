@@ -16,7 +16,7 @@
 #-------------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `#__ra_api_sites` (
     `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `sub_system` VARCHAR(12)  NOT NULL DEFAULT "RA Events",
+    `sub_system` VARCHAR(20)  NOT NULL DEFAULT "RA Events",
     `title` VARCHAR(100)  NOT NULL ,
     `url` VARCHAR(100)  NOT NULL ,
     `token` VARCHAR(255)  NOT NULL ,
