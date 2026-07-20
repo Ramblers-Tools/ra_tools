@@ -36,23 +36,11 @@ class HtmlView extends BaseHtmlView {
     }
 
     protected function getDashboardLayout(): string {
-        if (!ComponentHelper::isEnabled('com_ra_mailman', true)) {
-            return 'default';
-        }
-
-        $params = ComponentHelper::getParams('com_ra_mailman');
-
-        return $params->get('full_version') === 'Y' ? 'default' : 'mailman';
+        return 'default';
     }
 
     protected function getHelpUrl(string $layout): string {
-        switch ($layout) {
-            case 'mailman':
-                return 'https://docs.stokeandnewcastleramblers.org.uk/ramblers-components.html#corporate-mailman';
-
-            default:
-                return 'https://docs.stokeandnewcastleramblers.org.uk/ramblers-components.html';
-        }
+        return 'https://docs.stokeandnewcastleramblers.org.uk/ramblers-components.html';
     }
     
 
