@@ -10,3 +10,6 @@ build/
 .idea/
 .vscode/
 nbproject/
+
+# graphify output — regenerated locally, canonical copy lives in the vault
+graphify-out/
