@@ -64,11 +64,6 @@ if ($toolsHelper->isSuperuser()) {
     $sysToolsItems[] = ['label' => 'API sites', 'url' => 'index.php?option=com_ra_tools&view=apisites'];
     $sysToolsItems[] = ['label' => 'Access Configuration Wizard', 'url' => 'index.php?option=com_ra_tools&task=system.AccessWizard'];
     $sysToolsItems[] = ['label' => 'System Reports', 'url' => 'index.php?option=com_ra_tools&view=reports'];
-    $target = $jsonHelper->setUrl('organisation', '');
-    $sysToolsItems[] = ['label' => 'Show Organisation feed', 'url' => $target, 'target' => '_blank'];
-
-    $sysToolsItems[] = ['label' => 'Refresh details of Areas', 'url' => 'index.php?option=com_ra_tools&task=area_list.refreshAreas'];
-    $sysToolsItems[] = ['label' => 'Refresh details of Groups', 'url' => 'index.php?option=com_ra_tools&task=group_list.refreshGroups'];
 
     if ($canDo->get('core.admin')) {
         $versions = $toolsHelper->getVersions('com_ra_tools');
@@ -147,6 +142,13 @@ $orgItems = [
     ['label' => 'List of Areas', 'url' => 'index.php?option=com_ra_tools&view=area_list'],
     ['label' => 'List of Groups', 'url' => 'index.php?option=com_ra_tools&view=group_list'],
 ];
+
+if ($toolsHelper->isSuperuser()) {
+    $target = $jsonHelper->setUrl('organisation', '');
+    $orgItems[] = ['label' => 'Show Organisation feed', 'url' => $target, 'target' => '_blank'];
+    $orgItems[] = ['label' => 'Refresh details of Areas', 'url' => 'index.php?option=com_ra_tools&task=area_list.refreshAreas'];
+    $orgItems[] = ['label' => 'Refresh details of Groups', 'url' => 'index.php?option=com_ra_tools&task=group_list.refreshGroups'];
+}
 
 $blocks[] = [
     'title' => 'Organisation',

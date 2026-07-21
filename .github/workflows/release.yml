@@ -99,8 +99,8 @@ jobs:
         run: |
           VERSION=${{ steps.version.outputs.VERSION }}
           SHA=${{ steps.sha.outputs.SHA }}
-          DOWNLOAD_URL="https://github.com/Ramblers-Tools/ra_tools/releases/download/v${VERSION}/pkg_ra_tools-${VERSION}.zip"
-          INFO_URL="https://github.com/Ramblers-Tools/ra_tools/releases/tag/v${VERSION}"
+          DOWNLOAD_URL="https://github.com/Ramblers-Tools/ra-tools/releases/download/v${VERSION}/pkg_ra_tools-${VERSION}.zip"
+          INFO_URL="https://github.com/Ramblers-Tools/ra-tools/releases/tag/v${VERSION}"
 
           cat > updates/pkg_ra_tools.xml <<EOF
           <?xml version="1.0" encoding="utf-8"?>

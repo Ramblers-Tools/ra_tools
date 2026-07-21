@@ -13,7 +13,7 @@ A Joomla 5/6 extension package for Ramblers local groups and areas. Provides a m
 
 ## Installing
 
-1. Download the latest `pkg_ra_tools-<version>.zip` from the [Releases](https://github.com/Ramblers-Tools/ra_tools/releases) page.
+1. Download the latest `pkg_ra_tools-<version>.zip` from the [Releases](https://github.com/Ramblers-Tools/ra-tools/releases) page.
 2. In Joomla: **Extensions → Install → Upload Package File** — select the zip.
 3. Enable the plugins under **Extensions → Plugins** if not auto-enabled.
 
@@ -34,8 +34,8 @@ Merging a PR into `main` does **not** by itself trigger a release — a maintain
 ## Development setup
 
 ```bash
-git clone https://github.com/Ramblers-Tools/ra_tools.git
-cd ra_tools
+git clone https://github.com/Ramblers-Tools/ra-tools.git
+cd ra-tools
 # Use setup-joomla-symlinks.sh to symlink extension folders into a local Joomla install
 bash setup-joomla-symlinks.sh /path/to/joomla
 ```
