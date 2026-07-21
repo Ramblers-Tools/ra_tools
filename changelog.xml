@@ -3,7 +3,67 @@
     <changelog>
         <element>pkg_ra_tools</element>
         <type>package</type>
+        <version>4.0.8</version>
+        <date>2026-07-21</date>
+        <note>
+            <item><![CDATA[Moved "Show Organisation feed", "Refresh details of Areas" and "Refresh details of Groups" from System Tools into the Organisation dashboard box]]></item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>pkg_ra_tools</element>
+        <type>package</type>
+        <version>4.0.7</version>
+        <date>2026-07-20</date>
+        <note>
+            <item><![CDATA[Fix missing admin sidebar/toolbar on System Reports page]]></item>
+            <item><![CDATA[Fix duplicate report list and broken layout on System Reports page]]></item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>pkg_ra_tools</element>
+        <type>package</type>
+        <version>4.0.6</version>
+        <date>2026-07-20</date>
+        <note>
+            <item><![CDATA[Add RA Delivery dashboard block]]></item>
+            <item><![CDATA[Add RA SSO dashboard block]]></item>
+            <item><![CDATA[Fix ra_api_sites.sub_system column width]]></item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>pkg_ra_tools</element>
+        <type>package</type>
+        <version>4.0.4</version>
+        <date>2026-07-20</date>
+        <note>
+            <item><![CDATA[Always use the grid dashboard layout]]></item>
+            <item><![CDATA[Fix auto-update not appearing: pkg_ra_tools update XML missing <client>]]></item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>pkg_ra_tools</element>
+        <type>package</type>
+        <version>4.0.2</version>
+        <date>2026-07-18</date>
+        <note>
+            <item><![CDATA[Fix component manifest packaging causing site/admin file cross-contamination]]></item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>pkg_ra_tools</element>
+        <type>package</type>
+        <version>4.0.1</version>
+        <date>2026-07-18</date>
+        <note>
+            <item><![CDATA[Fix installer errors: plugin language files, admin language path, assets declaration]]></item>
+            <item><![CDATA[Auto-create empty SQL update file if missing during release]]></item>
+        </note>
+    </changelog>
+    <changelog>
+        <element>pkg_ra_tools</element>
+        <type>package</type>
         <version>4.0.0</version>
+        <date>2026-07-17</date>
         <note>
             <item><![CDATA[First release as a unified Ramblers Tools package]]></item>
             <item><![CDATA[Combines com_ra_tools component, mod_ra_tools module, webservices plugin and finder plugin into a single installable package]]></item>
