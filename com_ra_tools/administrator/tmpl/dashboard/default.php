@@ -349,9 +349,9 @@ if (ComponentHelper::isEnabled('com_ra_paths', true)) {
     ];
 }
 // ========== RA SSO BLOCK ==========
-if (ComponentHelper::isEnabled('com_miniorange_oauth', true)) {
+if (ComponentHelper::isEnabled('com_ra_sso', true)) {
     $ssoItems = [
-        ['label' => 'SSO Account Setup', 'url' => 'index.php?option=com_miniorange_oauth'],
+        ['label' => 'SSO Account Setup', 'url' => 'index.php?option=com_ra_sso'],
     ];
 
     $blocks[] = [
