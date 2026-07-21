@@ -27,7 +27,7 @@ cut from `beta`, PR back to `beta` when done.
 1. Make your changes in the source folders (`com_ra_tools/`, `mod_ra_tools/`, `plg_ra_tools/`).
 2. Push to `beta` (directly or via a feature-branch PR).
 3. GitHub automatically builds `pkg_ra_tools-<version>-beta.zip` and publishes it as a pre-release at:
-   `https://github.com/Ramblers-Tools/ra_tools/releases`
+   `https://github.com/Ramblers-Tools/ra-tools/releases`
 4. Install that zip on a staging Joomla site to test. Repeat steps 1–3 as needed.
 
 > The beta zip is marked `prerelease: true` so Joomla's auto-update system ignores it on production sites.
